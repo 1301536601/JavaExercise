@@ -1,18 +1,21 @@
 package com.example.springbootdemo.config;
 
-import com.example.springbootdemo.Mdel.Cat;
-import com.example.springbootdemo.Mdel.User;
+import com.example.springbootdemo.Model.Car;
+import com.example.springbootdemo.Model.Cat;
+import com.example.springbootdemo.Model.User;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ImportResource;
 
 @Configuration
-//
+@ImportResource("classpath:appbeanconfig.xml")
+@EnableConfigurationProperties(Car.class)
 public class MyConfig {
 
     //当容器中存在getCat属性后才注入
-    @ConditionalOnMissingBean(name = "getCat")
+    @ConditionalOnBean(name = "getCat")
     @Bean
     public User getUser(){
         User user =new User();
@@ -21,7 +24,7 @@ public class MyConfig {
         return user;
     }
 
-     @Bean
+    @Bean
     public Cat getCat(){
         Cat cat =new Cat();
         cat.setAge(11);

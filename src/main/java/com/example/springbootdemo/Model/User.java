@@ -1,10 +1,11 @@
-package com.example.springbootdemo.Mdel;
+package com.example.springbootdemo.Model;
 
 import lombok.Data;
 
 @Data
-public class Cat {
-
+public class User {
     private String userName;
+
     private  Integer age;
+
 }

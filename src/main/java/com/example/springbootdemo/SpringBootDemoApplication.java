@@ -1,8 +1,7 @@
 package com.example.springbootdemo;
 
-import com.example.springbootdemo.Mdel.Cat;
-import com.example.springbootdemo.Mdel.User;
-import lombok.var;
+import com.example.springbootdemo.Model.Cat;
+import com.example.springbootdemo.Model.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -31,6 +30,12 @@ public class SpringBootDemoApplication {
 
         Boolean cat=run.containsBean("getCat");
         System.out.println(cat);
+
+        Boolean hehe=run.containsBean("hehe");
+        System.out.println(hehe);
+
+        User hehe1 =run.getBean("hehe", User.class);
+        System.out.println(hehe1);
 
     }
 

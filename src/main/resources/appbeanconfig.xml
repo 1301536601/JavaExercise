@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    通过文件方式注入-->
+    <bean id="hehe" class="com.example.springbootdemo.Model.User">
+        <property name="age"   value="1"></property>
+        <property name="userName"   value="测试"></property>
+    </bean>
+</beans>

@@ -4,6 +4,7 @@ import com.example.springbootdemo.Model.Cat;
 import com.example.springbootdemo.Model.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 
 /**
@@ -14,7 +15,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class SpringBootDemoApplication {
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext run=SpringApplication.run(SpringBootDemoApplication.class, args);
+        ApplicationContext run=SpringApplication.run(SpringBootDemoApplication.class, args);
         String[] beanNames=run.getBeanDefinitionNames();
 //        System.out.println("所有bean的名称");
 //        System.out.println("******************");
@@ -34,8 +35,8 @@ public class SpringBootDemoApplication {
         Boolean hehe=run.containsBean("hehe");
         System.out.println(hehe);
 
-        User hehe1 =run.getBean("hehe", User.class);
-        System.out.println(hehe1);
+//        User hehe1 =run.getBean("hehe", User.class);
+//        System.out.println(hehe1);
 
     }
 

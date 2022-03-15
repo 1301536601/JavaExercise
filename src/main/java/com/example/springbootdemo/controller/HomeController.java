@@ -12,10 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/home")
 public class HomeController {
 
-    @Autowired
     ImportDemo importDemo;
-    @Autowired
     Car car;
+
+    public HomeController(ImportDemo importDemo,Car car){
+        this.importDemo=importDemo;
+        this.car=car;
+    }
+
+
 
 
     @GetMapping("sayHi")
@@ -25,8 +30,12 @@ public class HomeController {
         return  "你好呀";
     }
 
+    /*
+    从配置文件中获取信息
+     */
     @GetMapping("getCar")
     public Car getCar(){
+
         return  car;
     }
 }

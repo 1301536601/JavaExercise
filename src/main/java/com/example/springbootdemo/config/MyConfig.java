@@ -10,11 +10,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
 @Configuration
-//@ImportResource("classpath:appbeanconfig.xml")
+@ImportResource("classpath:appbeanconfig.xml")
 @EnableConfigurationProperties(Car.class)
 public class MyConfig {
 
     //当容器中存在getCat属性后才注入
+
     @ConditionalOnBean(name = "getCat")
     @Bean
     public User getUser(){

@@ -1,5 +1,6 @@
 package com.example.springbootdemo.config;
 
+import com.example.springbootdemo.Model.Cat;
 import com.example.springbootdemo.Model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
@@ -15,17 +16,21 @@ import javax.annotation.PostConstruct;
 @Service
 public class ImportDemo {
 
+    //使用ImportResource("classpath:appbeanconfig.xml") 不能带有构造函数
     User user;
-    public  ImportDemo(User user){
+    Cat cat;
+    public  ImportDemo(User user,Cat cat){
         this.user=user;
+        this.cat=cat;
     }
 
-    @PostConstruct
+    @PostConstruct //todo 待补充
     public void init(){
         System.out.println("user:"+ this.user);
+        System.out.println("cat:"+this.cat);
     }
 
     public void getUser(){
-//todo 待补充
+
     }
 }

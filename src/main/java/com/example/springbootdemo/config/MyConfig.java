@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
 @Configuration
-@ImportResource("classpath:appbeanconfig.xml")
+//@ImportResource("classpath:appbeanconfig.xml") 方法中不能带有构造函数
 @EnableConfigurationProperties(Car.class)
 public class MyConfig {
 

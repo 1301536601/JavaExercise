@@ -14,6 +14,14 @@ import org.springframework.context.annotation.ImportResource;
 @EnableConfigurationProperties(Car.class)
 public class MyConfig {
 
+    @Bean
+    public Cat getCat(){
+        Cat cat =new Cat();
+        cat.setAge(11);
+        cat.setUserName("宠物信息");
+        return cat;
+    }
+
     //当容器中存在getCat属性后才注入
     @ConditionalOnBean(name = "getCat")
     @Bean
@@ -24,11 +32,13 @@ public class MyConfig {
         return user;
     }
 
+    //当容器中存在getCat属性后才注入
+    @ConditionalOnBean(name = "getCat")
     @Bean
-    public Cat getCat(){
-        Cat cat =new Cat();
-        cat.setAge(11);
-        cat.setUserName("宠物信息");
-        return cat;
+    public User getUser1(){
+        User user =new User();
+        user.setUserName("张三1");
+        user.setAge(111);
+        return user;
     }
 }

@@ -26,7 +26,7 @@ public class SpringBootDemoApplication {
 //        System.out.println(cat);
 
         System.out.println("获取使用Conditional获取的Bean信息");
-        Boolean user=run.containsBean("getUser");
+        Boolean user=  run.containsBean("getUser");
         System.out.println(user);
 
         Boolean cat=run.containsBean("getCat");

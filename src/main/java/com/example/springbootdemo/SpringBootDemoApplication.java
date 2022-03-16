@@ -24,7 +24,6 @@ public class SpringBootDemoApplication {
 //        System.out.println("**********");
 //        Cat cat =run.getBean("getCat",Cat.class);
 //        System.out.println(cat);
-
         System.out.println("获取使用Conditional获取的Bean信息");
         Boolean user=  run.containsBean("getUser");
         System.out.println(user);
@@ -32,6 +31,7 @@ public class SpringBootDemoApplication {
         Boolean cat=run.containsBean("getCat");
         System.out.println(cat);
 
+        //需要需要MyConfig的ImportResource
         Boolean hehe=run.containsBean("hehe");
         System.out.println(hehe);
 

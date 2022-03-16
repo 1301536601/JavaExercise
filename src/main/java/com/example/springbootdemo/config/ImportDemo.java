@@ -22,6 +22,10 @@ public class ImportDemo {
     @Resource(name = "com.example.springbootdemo.Model.User")
     User user;
 
+    @Autowired
+    Cat cat;
+
+
     @PostConstruct //todo 待补充
     public void init(){
         System.out.println("user:"+ this.user);

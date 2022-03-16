@@ -2,6 +2,7 @@ package com.example.springbootdemo.controller;
 
 import com.example.springbootdemo.Model.Car;
 import com.example.springbootdemo.config.ImportDemo;
+import com.example.springbootdemo.config.Person;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,12 @@ public class HomeController {
 
     ImportDemo importDemo;
     Car car;
+    Person person;
 
-    public HomeController(ImportDemo importDemo,Car car){
+    public HomeController(ImportDemo importDemo,Car car,Person person){
         this.importDemo=importDemo;
         this.car=car;
+        this.person=person;
     }
 
 
@@ -41,5 +44,10 @@ public class HomeController {
     public Car getCar(){
 
         return  car;
+    }
+
+    @GetMapping("getPerson")
+    public  Person getPerson(){
+        return  person;
     }
 }

@@ -14,8 +14,12 @@ import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.ValidationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,7 +81,27 @@ public class HomeController {
 
     @ApiOperation(value = "错误返回值",notes = "错误返回值")
     @PostMapping("getErrorMsg")
-    public ResponseResult<List<LombokDemo>> getErrorMsg(){
+    public ResponseResult<List<LombokDemo>> getErrorMsg(HttpServletResponse response){
+        response.setContentType(MediaType.APPLICATION_XML_VALUE);
         return Response.ExitWithResponseErrorResult(-1,"请求错误");
     }
+
+    @ApiOperation(value = "Exception",notes = "异常返回")
+    @PostMapping("getExceptionDemo")
+    public ResponseResult<List<LombokDemo>> getExceptionDemo() throws Exception {
+       throw new Exception("这是一个Exception异常");
+    }
+
+    @ApiOperation(value = "ValidationException",notes = "异常返回")
+    @PostMapping("getValidationExceptionDemo")
+    public ResponseResult<List<LombokDemo>> getValidationExceptionDemo() throws ValidationException {
+        throw new ValidationException("这是一个ValidationException异常");
+    }
+
+    @ApiOperation(value = "MissingServletRequestParameterException",notes = "异常返回")
+    @PostMapping("getMissingServletRequestParameterExceptionDemo")
+    public ResponseResult<List<LombokDemo>> getMissingServletRequestParameterExceptionDemo() throws MissingServletRequestParameterException {
+        throw new MissingServletRequestParameterException("name","name".getClass().toString());
+    }
+
 }

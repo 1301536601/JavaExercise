@@ -1,9 +1,9 @@
 package com.example.springbootdemo.controller;
 
-import com.example.springbootdemo.Impl.IUserService;
-import com.example.springbootdemo.Model.Car;
-import com.example.springbootdemo.Model.LombokDemo;
-import com.example.springbootdemo.Model.SwaggerRequest;
+import com.example.springbootdemo.Service.IUserService;
+import com.example.springbootdemo.model.Car;
+import com.example.springbootdemo.model.LombokDemo;
+import com.example.springbootdemo.model.SwaggerRequest;
 import com.example.springbootdemo.config.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

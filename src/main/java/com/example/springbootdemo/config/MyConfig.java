@@ -1,13 +1,12 @@
 package com.example.springbootdemo.config;
 
-import com.example.springbootdemo.Model.Car;
-import com.example.springbootdemo.Model.Cat;
-import com.example.springbootdemo.Model.User;
+import com.example.springbootdemo.model.Car;
+import com.example.springbootdemo.model.Cat;
+import com.example.springbootdemo.model.User;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.ImportResource;
 
 @Configuration
 //@ImportResource("classpath:appbeanconfig.xml") 方法中不能带有构造函数

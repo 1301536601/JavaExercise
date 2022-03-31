@@ -1,9 +1,8 @@
 package com.example.springbootdemo.mapper;
 
-import com.example.springbootdemo.Entity.UserEntity;
+import com.example.springbootdemo.entity.UserEntity;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
-
+import org.apache.ibatis.annotations.Select;
 
 public interface UserEntityMapper {
 

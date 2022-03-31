@@ -1,8 +1,8 @@
-package com.example.springbootdemo.service;
+package com.example.springbootdemo.Impl;
 
-import com.example.springbootdemo.AopDemo.MetricTime;
-import com.example.springbootdemo.Entity.UserEntity;
-import com.example.springbootdemo.Impl.IUserService;
+import com.example.springbootdemo.aopDemo.MetricTime;
+import com.example.springbootdemo.entity.UserEntity;
+import com.example.springbootdemo.Service.IUserService;
 import com.example.springbootdemo.mapper.UserEntityMapper;
 import lombok.var;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.example.springbootdemo.AopDemo;
+package com.example.springbootdemo.aopDemo;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

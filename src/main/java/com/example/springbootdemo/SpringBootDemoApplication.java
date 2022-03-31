@@ -1,17 +1,16 @@
 package com.example.springbootdemo;
 
-import lombok.var;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import java.io.IOException;
-import java.io.InputStream;
 
 /**
 标识当前为启动类，并且为springboot应用
 */
 //scanBasePackages = "com" 设置包扫描的初始位置
 @SpringBootApplication()
+@MapperScan("com.example.springbootdemo.mapper")
 public class SpringBootDemoApplication {
 
     public static void main(String[] args)  {

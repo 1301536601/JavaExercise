@@ -8,6 +8,7 @@ import com.example.springbootdemo.config.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import lombok.var;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,7 @@ public class HomeController {
     Car car;
     Person person;
     IUserService userService;
+
 
     public HomeController(ImportDemo importDemo, Car car, Person person, IUserService userService) {
         this.importDemo = importDemo;
@@ -93,7 +95,8 @@ public class HomeController {
     @PostMapping("getPersonByPage")
     public  ResponseResult<PageResult<LombokDemo>> getPersonByPage(int page,int size){
         ArrayList<LombokDemo> result=new ArrayList<LombokDemo>();
-
+        var qq=userService.getUser();
+        System.out.println(qq);
         result.add(new LombokDemo("1",1));
         result.add(new LombokDemo("2",2));
         return  Response.ExitWithResponseSuccessResult(new PageResult(result.size(),size,page,result));

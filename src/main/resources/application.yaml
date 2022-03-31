@@ -1,11 +1,12 @@
-person:
-  name: zhangsan
-  age: 11
-  address: '你好呀'
-#  开启put和delete请求
-spring:
-  mvc:
-    hiddenmethod:
-      filter:
-        enabled: true
-
+#person:
+#  name: zhangsan
+#  age: 11
+#  address: '你好呀'
+##  开启put和delete请求
+#spring:
+#  mvc:
+#    hiddenmethod:
+#      filter:
+#        enabled: true
+#
+#

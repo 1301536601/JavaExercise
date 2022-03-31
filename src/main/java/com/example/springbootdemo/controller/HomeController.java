@@ -1,19 +1,13 @@
 package com.example.springbootdemo.controller;
 
+import com.example.springbootdemo.Impl.IUserService;
 import com.example.springbootdemo.Model.Car;
 import com.example.springbootdemo.Model.LombokDemo;
 import com.example.springbootdemo.Model.SwaggerRequest;
-import com.example.springbootdemo.config.ImportDemo;
-import com.example.springbootdemo.config.Person;
-import com.example.springbootdemo.config.Response;
-import com.example.springbootdemo.config.ResponseResult;
+import com.example.springbootdemo.config.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import lombok.experimental.var;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
@@ -32,12 +26,15 @@ public class HomeController {
     ImportDemo importDemo;
     Car car;
     Person person;
+    IUserService userService;
 
-    public HomeController(ImportDemo importDemo,Car car,Person person){
-        this.importDemo=importDemo;
-        this.car=car;
-        this.person=person;
+    public HomeController(ImportDemo importDemo, Car car, Person person, IUserService userService) {
+        this.importDemo = importDemo;
+        this.car = car;
+        this.person = person;
+        this.userService = userService;
     }
+
 
     @ApiOperation(value = "测试接口",notes = "说你好")
     @GetMapping("sayHi")
@@ -86,6 +83,23 @@ public class HomeController {
         return Response.ExitWithResponseErrorResult(-1,"请求错误");
     }
 
+    /**
+     *
+     * @param page 当前页面
+     * @param size 页面大小
+     * @return
+     */
+    @ApiOperation(value = "分页获取值",notes = "分页获取值")
+    @PostMapping("getPersonByPage")
+    public  ResponseResult<PageResult<LombokDemo>> getPersonByPage(int page,int size){
+        ArrayList<LombokDemo> result=new ArrayList<LombokDemo>();
+
+        result.add(new LombokDemo("1",1));
+        result.add(new LombokDemo("2",2));
+        return  Response.ExitWithResponseSuccessResult(new PageResult(result.size(),size,page,result));
+
+    }
+
     @ApiOperation(value = "Exception",notes = "异常返回")
     @PostMapping("getExceptionDemo")
     public ResponseResult<List<LombokDemo>> getExceptionDemo() throws Exception {
@@ -102,6 +116,12 @@ public class HomeController {
     @PostMapping("getMissingServletRequestParameterExceptionDemo")
     public ResponseResult<List<LombokDemo>> getMissingServletRequestParameterExceptionDemo() throws MissingServletRequestParameterException {
         throw new MissingServletRequestParameterException("name","name".getClass().toString());
+    }
+
+    @GetMapping("/getUserService")
+    public ResponseResult<String> getUserService(){
+        userService.printHi();
+        return Response.ExitWithResponseSuccessResult();
     }
 
 }

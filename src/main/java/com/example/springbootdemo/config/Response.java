@@ -1,6 +1,6 @@
 package com.example.springbootdemo.config;
 
-public class Response {
+public class Response<T> {
 
     private final static String SUCCESS = "success";
 

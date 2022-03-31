@@ -1,11 +1,11 @@
 package com.example.springbootdemo;
 
-import com.example.springbootdemo.Model.Cat;
-import com.example.springbootdemo.Model.User;
+import lombok.var;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
 标识当前为启动类，并且为springboot应用
@@ -14,7 +14,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 @SpringBootApplication()
 public class SpringBootDemoApplication {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         ApplicationContext run=SpringApplication.run(SpringBootDemoApplication.class, args);
         String[] beanNames=run.getBeanDefinitionNames();
 //        System.out.println("所有bean的名称");
